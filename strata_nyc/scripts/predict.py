@@ -8,18 +8,25 @@ Examples:
         $ python predict.py
 """
 import logging
+from pathlib import Path
 
 import click
+import pandas as pd
+from cloudpickle import load
 
+from strata_nyc.util.config import parse_config
 from strata_nyc.util.logging import setup_logging
 
 logger = logging.getLogger(__name__)
 
 
 @click.command()
-def main():
+@click.argument(
+    "config_file", type=click.Path(exists=True), default="/mnt/configs/config.yml"
+)
+def predict(config_file):
     """
-    Main function that loads config, sets up logging, and runs predictions
+    Main function runs predictions.
 
     Args:
         None
@@ -27,10 +34,28 @@ def main():
     Returns:
         None
     """
-    logger.info("Predicting")
+    config = parse_config(config_file)
+
+    # Load model
+    logger.info(f"Loading model from {config['predict']['model_path']}.")
+    model_path = Path(config["predict"]["model_path"])
+    with open(model_path, "rb") as f:
+        trained_model = load(f)
+
+    # Load data
+    logger.info(f"Loading input data from {config['predict']['data_path']}.")
+    data_path = Path(config["predict"]["data_path"])
+    X = pd.read_parquet(data_path)
+
+    # Make predictions and persist
+    logger.info(
+        f"Make predictions and persist to {config['predict']['predictions_path']}."
+    )
+    yhat = trained_model.predict(X)
+    yhat = pd.DataFrame(yhat, columns=["MedianHouseValue"])
+    yhat.to_parquet(config["predict"]["predictions_path"])
 
 
 if __name__ == "__main__":
-    # set-up logging only once
     setup_logging()
-    main()
+    predict()

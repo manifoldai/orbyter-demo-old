@@ -1,9 +1,11 @@
+import pytest
 from click.testing import CliRunner
 
-from strata_nyc.scripts.predict import main
+from strata_nyc.scripts.predict import predict
 
 
-def test_predict():
+@pytest.mark.parametrize("config_file", [("/mnt/configs/config.yml")])
+def test_predict(config_file):
     runner = CliRunner()
-    result = runner.invoke(main, [])
+    result = runner.invoke(predict, [config_file])
     assert result.exit_code == 0

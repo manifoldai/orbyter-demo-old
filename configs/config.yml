@@ -8,9 +8,7 @@ model:
   # model params
   model_params: {}
   # dir to save model weights
-  model_dir: "/mnt/model_cache"
-  # name to save model weights to
-  filename: "demo_model"
+  model_path: "/mnt/model_cache/demo_model.pkl"
 
 train:
 
@@ -20,3 +18,8 @@ evaluate:
   retrain: True
   # MLFlow experiment name
   experiment_name: "test"
+
+predict:
+  model_path: "/mnt/model_cache/demo_model.pkl"
+  data_path: "/mnt/data/processed/X.pqt"
+  predictions_path: "/mnt/data/predictions/yhat.pqt"

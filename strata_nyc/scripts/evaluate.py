@@ -44,7 +44,7 @@ def evaluate(config_file):
     config = parse_config(config_file)
 
     # Load data from processed directory
-    logger.info("Loading training data.")
+    logger.info(f"Loading training data from {config['global']['processed_data_dir']}.")
     processed_data_dir = Path(config["global"]["processed_data_dir"])
     X = pd.read_parquet(processed_data_dir / "X.pqt")
     y = pd.read_parquet(processed_data_dir / "y.pqt")["MedianHouseValue"]
@@ -54,9 +54,10 @@ def evaluate(config_file):
     n_estimators = 10
     rf = RandomForestRegressor(n_estimators=n_estimators)
     scores = cross_val_score(rf, X, y, cv=5, scoring="r2")
+    logger.info(f"Average R2: {scores.mean()}")
 
     # Do cross validation to get out of sample predictions for training data
-    logger.info("5-fold cross validation to get y vs y_hat plot.")
+    logger.info("5-fold cross validation to generate y vs y_hat plot.")
     y_predicted = cross_val_predict(rf, X, y, cv=5)
     fig = plot_y_yhat(y, y_predicted)
 

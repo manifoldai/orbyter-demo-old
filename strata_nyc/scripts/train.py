@@ -38,7 +38,7 @@ def main(config_file):
     config = parse_config(config_file)
 
     # Load data from processed directory
-    logger.info("Loading training data.")
+    logger.info(f"Loading training data from {config['global']['processed_data_dir']}.")
     processed_data_dir = Path(config["global"]["processed_data_dir"])
     X = pd.read_parquet(processed_data_dir / "X.pqt")
     y = pd.read_parquet(processed_data_dir / "y.pqt")["MedianHouseValue"]
@@ -49,10 +49,9 @@ def main(config_file):
     trained_model = train(model, X, y)
 
     # Persist model
-    logger.info("Persisting model.")
-    model_dir = Path(config["model"]["model_dir"])
-    filename = config["model"]["filename"]
-    with open(model_dir / f"{filename}.pkl", "wb") as f:
+    logger.info(f"Persisting model to {config['model']['model_path']}.")
+    model_path = Path(config["model"]["model_path"])
+    with open(model_path, "wb") as f:
         dump(trained_model, f)
 
 
