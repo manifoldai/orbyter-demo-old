@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 )
 def etl(config_file):
     """
-    ETL function that loads raw data, converts to DataFrame, and writes to processed dir.
+    ETL function that loads raw data, converts to df, and writes to processed dir.
 
     Args:
         config_file (str): path to config file

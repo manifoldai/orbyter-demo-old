@@ -12,7 +12,7 @@ from pathlib import Path
 
 import click
 import pandas as pd
-from cloudpickle import dump, load
+from cloudpickle import dump
 from sklearn.ensemble import RandomForestRegressor
 
 from strata_nyc.util.config import parse_config
@@ -59,7 +59,7 @@ def main(config_file):
 def train(model, X, y):
     """
     Model trainer for models and pipelines that adhere to the sklearn API.
-    
+
     Args:
         model (sklearn.model): model that adheres to sklearn model API
         X (DataFrame): feature matrix
