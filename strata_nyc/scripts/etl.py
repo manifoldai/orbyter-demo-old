@@ -5,7 +5,7 @@ This module is for the etl of raw data into processed data.
 Examples:
     Example command line executable::
 
-        $ python etl.py configs/config.yml
+        $ python etl.py /mnt/configs/config.yml
 """
 import logging
 from pathlib import Path
@@ -22,9 +22,9 @@ logger = logging.getLogger(__name__)
 
 @click.command()
 @click.argument(
-    "config_file", type=click.Path(exists=True), default="./configs/config.yml"
+    "config_file", type=click.Path(exists=True), default="/mnt/configs/config.yml"
 )
-def etl(config_file="config.yml"):
+def etl(config_file):
     """
     ETL function that loads raw data, converts to DataFrame, and writes to processed dir.
 

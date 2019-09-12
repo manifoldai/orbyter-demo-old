@@ -1,6 +1,6 @@
 global:
-  raw_data_dir: "./data/raw"
-  processed_data_dir: "./data/processed"
+  raw_data_dir: "/mnt/data/raw"
+  processed_data_dir: "/mnt/data/processed"
 
 model:
   # model name. see factory.py for options
@@ -8,9 +8,9 @@ model:
   # model params
   model_params: {}
   # dir to save model weights
-  model_dir: "./model_cache"
+  model_dir: "/mnt/model_cache"
   # name to save model weights to
-  model_cache_name: "invivo"
+  filename: "demo_model"
 
 train:
 

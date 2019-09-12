@@ -85,6 +85,7 @@ target/
 !/experiments/.gitkeep
 /logs/*
 !/logs/.gitkeep
+/model_cache/
 
 # Mac OS-specific storage files
 .DS_Store
