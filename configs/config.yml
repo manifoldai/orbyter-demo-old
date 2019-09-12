@@ -1,0 +1,22 @@
+global:
+  raw_data_dir: "./data/raw"
+  processed_data_dir: "./data/processed"
+
+model:
+  # model name. see factory.py for options
+  model_name: "random_forest"
+  # model params
+  model_params: {}
+  # dir to save model weights
+  model_dir: "./model_cache"
+  # name to save model weights to
+  model_cache_name: "invivo"
+
+train:
+
+
+evaluate:
+  # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
+  retrain: True
+  # MLFlow experiment name
+  experiment_name: "test"

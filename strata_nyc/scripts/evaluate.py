@@ -17,7 +17,6 @@ from dotenv import find_dotenv, load_dotenv
 
 from strata_nyc.util.config import parse_config
 from strata_nyc.util.logging import setup_logging
-from strata_nyc.util.security import get_secure_sql_url
 
 logger = logging.getLogger(__name__)
 
@@ -90,10 +89,6 @@ def log_experiment(
     mlflow.set_experiment(experiment_name)
     logger.info(f"Running experiment {experiment_name}")
     with mlflow.start_run():
-        # verify URI and artifacts
-        ml_track_secure = get_secure_sql_url(mlflow.tracking.get_tracking_uri())
-        logger.info(f"MLFlow Tracking URI: {ml_track_secure}")
-        logger.info(f"Artifact URI: {mlflow.get_artifact_uri()}")
         # param logging
         for key, val in params.items():
             logging.info(f"Logging param {key}")
