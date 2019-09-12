@@ -45,7 +45,7 @@ def main(config_file):
 
     # Actually train the model
     logger.info("Training model.")
-    model = RandomForestRegressor(n_estimators=100)
+    model = RandomForestRegressor(n_estimators=10)
     trained_model = train(model, X, y)
 
     # Persist model
