@@ -38,7 +38,7 @@ docker-compose version 1.21.0, build 1719ceb
 ## Start Docker Containers
 
 The runtime for strata_nyc is inside a Docker container. We have helper scripts to launch the appropriate containers.  To launch a docker container and begin working on a CPU, run from the root directory of the repository:
-`./scripts/start.sh`
+`./scripts/local/start.sh`
 
 
 This builds images using the Dockerfile in docker/Dockerfile, and runs containers named after the project directory. To see the running containers, run
@@ -149,52 +149,6 @@ These are the file artifacts associated with a run. These include the logs, conf
 ## Conclusion
 This is the basic workflow! You can run this locally or on a cloud machine. When working on a cloud machine you will likely need to to ssh tunnelling, screen, and other tools to make sure you can view MLFLow and don't have issues with network pipes breaking.
 
-# Project Structure
-```
-├── LICENSE
-├── README.md                 <- Project README
-├── config.yml                <- Project configuration for python scripts
-├── data                      <- Data cache folder
-│   ├── external              <- Data from third party sources.
-│   ├── interim               <- Intermediate data that has been transformed.
-│   ├── processed             <- The final, canonical data sets for modeling.
-│   └── raw                   <- The original, immutable data dump.
-├── docker
-│   ├── Dockerfile            <- New project Dockerfile that sources from base ML dev image
-│   ├── docker-compose.yml    <- Docker Compose configuration file
-│   └── requirements.txt      <- The requirements file for reproducing the analysis environment.
-│                                New libraries should be added in the requirements
-├── experiments               <- Where to store different model experiments, e.g., model pkls and analysis
-|-- figures                   <- figure saving directory
-├── logging.yml               <- Logging config file
-├── logs                      <- Logging directory
-|-- model_cache               <- model cache directory
-├── notebooks                 <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                                the creator's initials, and a short `-` delimited description, e.g.
-│                                `1.0-jqp-initial-data-exploration`.
-├── pyproject.toml            <- Config file used by black
-├── scripts                   <- executable bash script folder
-│   ├── autoformat.sh         <- Auto lints project
-│   ├── ci.sh                 <- Run a local CI test
-│   ├── docker_clean_all.sh   <- Helper script to remove all containers and images from your system
-│   └── start.sh              <- Script to run docker compose and any other project specific initialization 
-│                                steps
-├── tox.ini                   <- tox config file with settings for flake
-└── strata_nyc   <- Project repo
-    ├── __init__.py           <- Makes repo a Python module
-    ├── features              <- Feature engineering pipeline go here 
-    ├── models                <- Model pipelines go here   
-    ├── scripts               <- Python executable scripts
-    │   ├── evaluate.py       <- Evaluation script
-    |   |-- train.py          <- Training script
-    |   |-- predict.py        <- Prediction script
-    |   |-- etl.py            <- ETL script
-    ├── util                  <- Util folder
-    │   ├── config.py         <- Config file utilities
-    │   └── logging.py        <- Logging utility
-    └── viz                   <- Visualization functions
-```
---------
 
 # Developer Workflow
 Continued development in this repo is straightforward.  The scaffolding is meant to be extensible -- you should add your own models, loss functions, feature engineering pipelines, etc. For brevity we are not putting information about the intended development workflow in this README. Look [here](docs/develop.md) for more information about the intended development workflow for this repo. 
