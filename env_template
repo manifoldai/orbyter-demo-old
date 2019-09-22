@@ -1,5 +1,6 @@
-DO NOT PUT SECRETS IN THIS FILE
-
-# Environment variables to be read by dockers containers. Do not use quotes
-MLFLOW_TRACKING_URI=
+############## DO NOT PUT SECRETS IN THIS TEMPLATE FILE ##############
+# Put them in the .env file that will be created from this file.
+# These are environment variables that will be read by dockers containers. 
+# Do not use quotes.
+MLFLOW_TRACKING_URI=/mnt/experiments
 MLFLOW_ARTIFACT_LOCATION=
