@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  notebook-server:
+  jupyter:
     build:
       context: .
     ports:
@@ -10,7 +10,7 @@ services:
        - ../:/mnt
     entrypoint: bash -c "cd /mnt && jupyter notebook --NotebookApp.token='' --ip=0.0.0.0 --allow-root && /bin/bash" 
     stdin_open: true
-    container_name: "strata_nyc_notebook-server_${USER}"
+    container_name: "strata_nyc_jupyter_${USER}"
     tty: true
     env_file:
       - ../.env 
@@ -29,14 +29,14 @@ services:
     env_file:
       - ../.env 
 
-  bash-executer:
+  bash:
     build:
       context: .
     volumes:
        - ../:/mnt
     entrypoint: "/bin/bash" 
     stdin_open: true
-    container_name: "strata_nyc_bash-executer_${USER}"
+    container_name: "strata_nyc_bash_${USER}"
     tty: true
     env_file:
       - ../.env 
