@@ -21,14 +21,14 @@ A basic CI job should check for two things:
 
 You can run CI locally by running the script:
 ```bash
-./scripts/ci.sh
+./scripts/docker/ci.sh
 ```
 
 ### Lint
 
 [Linting](https://realpython.com/python-code-quality/) -- or checking the code style -- is an important part of any software development practice.  To make things simple, we have created a script that automates linting as much as possible. It can be invoked (from inside the Docker container as always):
 ```bash
-./scripts/autoformat.sh
+./scripts/docker/autoformat.sh
 ```
 
 This should use black and isort to automatically format your code so that it passes CI. If it is unable to, it will let you know. You can check if CI passes after auto-formatting by running the `ci.sh` script above. 
@@ -37,12 +37,12 @@ This should use black and isort to automatically format your code so that it pas
 
 We have written a number of unit tests for this repo. You can run all of them using `pytest`.  You can run a specific test suite by running that specific python file:
 ```bash
-pytest strata_nyc/scripts/test_evaluate.py -v
+pytest strata_nyc/scripts/evaluate_test.py -v
 ```
 
 You can even just run a specific test by issuing a command like: 
 ```bash
-pytest strata_nyc/scripts/test_evaluate.py::test_evaluate -v
+pytest strata_nyc/scripts/evaluate_test.py::test_evaluate -v
 ```
 
 Read more about pytest and how to invoke tests [here](https://docs.pytest.org/en/latest/usage.html). 
