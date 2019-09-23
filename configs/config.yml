@@ -1,6 +1,6 @@
 global:
-  raw_data_dir: "/mnt/data/raw"
-  processed_data_dir: "/mnt/data/processed"
+  raw_data_dir: "/mnt/data/demo/raw"
+  processed_data_dir: "/mnt/data/demo/processed"
 
 model:
   # model name. see factory.py for options
@@ -17,9 +17,9 @@ evaluate:
   # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
   retrain: True
   # MLFlow experiment name
-  experiment_name: "test"
+  experiment_name: "demo"
 
 predict:
   model_path: "/mnt/model_cache/demo_model.pkl"
-  data_path: "/mnt/data/processed/X.pqt"
-  predictions_path: "/mnt/data/predictions/yhat.pqt"
+  data_path: "/mnt/data/demo/processed/X.pqt"
+  predictions_path: "/mnt/data/demo/predictions/yhat.pqt"
