@@ -1,0 +1,21 @@
+name: Verify PRs
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container:
+      image: docker://manifoldai/orbyter-ml-dev:1.8
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Black
+      run: black --check strata_nyc
+    - name: Flake8 
+      run: flake8 strata_nyc
+    - name: Unit Tests
+      run: pytest strata_nyc
+      env:
+        MLFLOW_TRACKING_URI: /experiments
+        MLFLOW_ARTIFACT_LOCATION: 
