@@ -21,9 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 @click.command()
-@click.argument(
-    "config_file", type=str, default="/mnt/configs/config.yml"
-)
+@click.argument("config_file", type=str, default="/mnt/configs/config.yml")
 def etl(config_file):
     """
     ETL function that loads raw data, converts to df, and writes to processed dir.

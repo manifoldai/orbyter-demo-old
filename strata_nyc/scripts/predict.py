@@ -21,9 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 @click.command()
-@click.argument(
-    "config_file", type=str, default="/mnt/configs/config.yml"
-)
+@click.argument("config_file", type=str, default="/mnt/configs/config.yml")
 def predict(config_file):
     """
     Main function runs predictions.
