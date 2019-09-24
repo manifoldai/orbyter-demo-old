@@ -1,17 +1,12 @@
 global:
-  raw_data_dir: "/mnt/data/demo/raw"
-  processed_data_dir: "/mnt/data/demo/processed"
+  raw_data_dir: "data/demo/raw"
+  processed_data_dir: "data/demo/processed"
 
 model:
-  # model name. see factory.py for options
   model_name: "random_forest"
-  # model params
   model_params: {}
   # dir to save model weights
-  model_path: "/mnt/model_cache/demo_model.pkl"
-
-train:
-
+  model_path: "model_cache/demo_model.pkl"
 
 evaluate:
   # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
@@ -20,6 +15,6 @@ evaluate:
   experiment_name: "demo"
 
 predict:
-  model_path: "/mnt/model_cache/demo_model.pkl"
-  data_path: "/mnt/data/demo/processed/X.pqt"
-  predictions_path: "/mnt/data/demo/predictions/yhat.pqt"
+  model_path: "model_cache/demo_model.pkl"
+  data_path: "data/demo/processed/X.pqt"
+  predictions_path: "data/demo/predictions/yhat.pqt"

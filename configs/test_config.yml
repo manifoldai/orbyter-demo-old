@@ -3,15 +3,10 @@ global:
   processed_data_dir: "data/tests/processed"
 
 model:
-  # model name. see factory.py for options
   model_name: "random_forest"
-  # model params
   model_params: {}
   # dir to save model weights
   model_path: "data/tests/model_cache/train_output_model.pkl"
-
-train:
-
 
 evaluate:
   # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
