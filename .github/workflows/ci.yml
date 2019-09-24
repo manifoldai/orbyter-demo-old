@@ -16,3 +16,6 @@ jobs:
       run: flake8 strata_nyc
     - name: Unit Tests
       run: pytest strata_nyc
+      env:
+        MLFLOW_TRACKING_URI: /experiments
+        MLFLOW_ARTIFACT_LOCATION: 
