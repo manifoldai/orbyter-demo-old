@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 @click.command()
 @click.argument(
-    "config_file", type=click.Path(exists=True), default="/mnt/configs/config.yml"
+    "config_file", type=str, default="/mnt/configs/config.yml"
 )
 def predict(config_file):
     """
