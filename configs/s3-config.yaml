@@ -1,0 +1,25 @@
+global:
+  raw_data_dir: "/mnt/data/demo/raw"
+  processed_data_dir: "s3://strata-nyc-2019/exp-1/data/processed"
+
+model:
+  # model name. see factory.py for options
+  model_name: "random_forest"
+  # model params
+  model_params: {}
+  # dir to save model weights
+  model_path: "s3://strata-nyc-2019/exp-1/model_cache/demo_model.pkl"
+
+train:
+
+
+evaluate:
+  # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
+  retrain: True
+  # MLFlow experiment name
+  experiment_name: "exp-1"
+
+predict:
+  model_path: "s3://strata-nyc-2019/exp-1/model_cache/demo_model.pkl"
+  data_path: "s3://strata-nyc-2019/exp-1/data/processed/X.pqt"
+  predictions_path: "s3://strata-nyc-2019/exp-1/data/predictions/yhat.pqt"
