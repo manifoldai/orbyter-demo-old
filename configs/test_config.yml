@@ -1,6 +1,6 @@
 global:
-  raw_data_dir: "/mnt/data/tests/raw"
-  processed_data_dir: "/mnt/data/tests/processed"
+  raw_data_dir: "data/tests/raw"
+  processed_data_dir: "data/tests/processed"
 
 model:
   # model name. see factory.py for options
@@ -8,7 +8,7 @@ model:
   # model params
   model_params: {}
   # dir to save model weights
-  model_path: "/mnt/data/tests/model_cache/train_output_model.pkl"
+  model_path: "data/tests/model_cache/train_output_model.pkl"
 
 train:
 
@@ -20,6 +20,6 @@ evaluate:
   experiment_name: "test"
 
 predict:
-  model_path: "/mnt/data/tests/model_cache/predict_model.pkl"
-  data_path: "/mnt/data/tests/processed/X.pqt"
-  predictions_path: "/mnt/data/tests/predictions/yhat.pqt"
+  model_path: "data/tests/model_cache/predict_model.pkl"
+  data_path: "data/tests/processed/X.pqt"
+  predictions_path: "data/tests/predictions/yhat.pqt"
