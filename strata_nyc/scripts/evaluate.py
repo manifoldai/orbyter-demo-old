@@ -28,9 +28,7 @@ logger = logging.getLogger(__name__)
 
 
 @click.command()
-@click.argument(
-    "config_file", type=click.Path(exists=True), default="/mnt/configs/config.yml"
-)
+@click.argument("config_file", type=str, default="/mnt/configs/config.yml")
 def evaluate(config_file):
     """
     Main function that trains model and runs evaluation.

@@ -3,6 +3,7 @@
 This module is for config utility functions.
 """
 import yaml
+from smart_open import open
 
 
 def parse_config(config_file):

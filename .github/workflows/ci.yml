@@ -15,7 +15,9 @@ jobs:
     - name: Flake8 
       run: flake8 strata_nyc
     - name: Unit Tests
-      run: pytest strata_nyc
+      run: |
+        pip install -r docker/requirements.txt
+        pytest strata_nyc
       env:
         MLFLOW_TRACKING_URI: /experiments
         MLFLOW_ARTIFACT_LOCATION: 

@@ -1,0 +1,15 @@
+{
+    "jobDefinitionName": "strata-nyc-evaluate-demo",
+    "type": "container",
+    "parameters": {},
+    "retryStrategy": {
+        "attempts": 1
+    },
+    "containerProperties": {
+        "image": "952187651954.dkr.ecr.us-east-1.amazonaws.com/strata_nyc_bash_deploy",
+        "vcpus": 1,
+        "memory": 1000,
+        "command": [],
+        "jobRoleArn": "arn:aws:iam::952187651954:role/jams-ecs-task-role"
+    }
+}
