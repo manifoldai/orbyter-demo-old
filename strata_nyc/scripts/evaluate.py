@@ -49,7 +49,9 @@ def evaluate(config_file):
 
     # Do cross validation to get average R2 metric
     logger.info("5-fold cross validation to get R2 metric.")
-    n_estimators = 10
+
+    n_estimators = config["model"]["model_params"]["n_estimators"]
+
     rf = RandomForestRegressor(n_estimators=n_estimators)
     scores = cross_val_score(rf, X, y, cv=5, scoring="r2")
     logger.info(f"Average R2: {scores.mean()}")

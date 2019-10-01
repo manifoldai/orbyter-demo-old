@@ -4,7 +4,7 @@ global:
 
 model:
   model_name: "random_forest"
-  model_params: {}
+  model_params: {"n_estimators": 10}
   # dir to save model weights
   model_path: "model_cache/demo_model.pkl"
 
