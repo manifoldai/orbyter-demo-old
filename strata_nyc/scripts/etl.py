@@ -10,6 +10,10 @@ Examples:
 import logging
 from pathlib import Path
 
+from os.path import exists
+from os import makedirs
+
+
 import click
 import pandas as pd
 from sklearn import datasets
@@ -36,6 +40,9 @@ def etl(config_file):
     config = parse_config(config_file)
     raw_data_dir = Path(config["global"]["raw_data_dir"])
     processed_data_dir = Path(config["global"]["processed_data_dir"])
+
+    if not exists(processed_data_dir):
+        makedirs(processed_data_dir)
 
     # Load dataset and convert to pandas dataframe
     logger.info(f"Extract data from CA housing dataset in {raw_data_dir}.")
