@@ -11,13 +11,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Black
-      run: black --check strata_nyc
+      run: black --check orbyter_demo
     - name: Flake8 
-      run: flake8 strata_nyc
+      run: flake8 orbyter_demo
     - name: Unit Tests
       run: |
         pip install -r docker/requirements.txt
-        pytest strata_nyc
+        pytest orbyter_demo
       env:
         MLFLOW_TRACKING_URI: /experiments
         MLFLOW_ARTIFACT_LOCATION: 

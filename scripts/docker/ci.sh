@@ -5,12 +5,12 @@
 set -ex
 
 echo 'Running black'
-black --check strata_nyc
+black --check orbyter_demo
 
 echo 'Running flake'
-flake8 strata_nyc
+flake8 orbyter_demo
 
 echo 'Running pytest'
-pytest strata_nyc
+pytest orbyter_demo
 
 echo 'Finished tests'

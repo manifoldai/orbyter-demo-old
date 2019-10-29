@@ -15,8 +15,8 @@ import pandas as pd
 from cloudpickle import dump
 from sklearn.ensemble import RandomForestRegressor
 
-from strata_nyc.util.config import parse_config
-from strata_nyc.util.logging import setup_logging
+from orbyter_demo.util.config import parse_config
+from orbyter_demo.util.logging import setup_logging
 
 logger = logging.getLogger(__name__)
 

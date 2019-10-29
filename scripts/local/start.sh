@@ -17,4 +17,4 @@ fi
 
 # Always rebuild the images
 echo "Building new images from compose"
-docker-compose -f docker/docker-compose.yml --project-name strata_nyc up -d --build
+docker-compose -f docker/docker-compose.yml --project-name orbyter_demo up -d --build

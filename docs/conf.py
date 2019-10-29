@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# strata_nyc documentation build configuration file, created by
+# orbyter_demo documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -41,7 +41,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "strata_nyc"
+project = "orbyter_demo"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +164,7 @@ html_static_path = ["_static"]
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "strata_nycdoc"
+htmlhelp_basename = "orbyter_demodoc"
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,8 +183,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "strata_nyc.tex",
-        "strata_nyc Documentation",
+        "orbyter_demo.tex",
+        "orbyter_demo Documentation",
         "Manifold, Inc.",
         "manual",
     )
@@ -218,8 +218,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "strata_nyc",
-        "strata_nyc Documentation",
+        "orbyter_demo",
+        "orbyter_demo Documentation",
         ["Manifold, Inc."],
         1,
     )
@@ -237,10 +237,10 @@ man_pages = [
 texinfo_documents = [
     (
         "index",
-        "strata_nyc",
-        "strata_nyc Documentation",
+        "orbyter_demo",
+        "orbyter_demo Documentation",
         "Manifold, Inc.",
-        "strata_nyc",
+        "orbyter_demo",
         "My Project Description",
         "Miscellaneous",
     )

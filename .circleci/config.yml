@@ -24,7 +24,7 @@ jobs:
           name: pytest
           command: |-
             echo "Running pytest"
-            pytest strata_nyc
+            pytest orbyter_demo
 workflows:
   version: 2
   build-and-test:

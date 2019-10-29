@@ -7,9 +7,9 @@
 set -ex
 
 echo 'Running isort'
-isort -rc strata_nyc
+isort -rc orbyter_demo
 
 echo 'Running black'
-black strata_nyc
+black orbyter_demo
 
 echo 'Finished auto formatting'

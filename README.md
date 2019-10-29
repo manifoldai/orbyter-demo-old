@@ -1,6 +1,6 @@
-strata_nyc
+Orbyter Demo
 ==============================
-![](https://github.com/manifoldai/strata_nyc/workflows/Verify%20PRs/badge.svg)
+![](https://github.com/manifoldai/orbyter_demo/workflows/Verify%20PRs/badge.svg)
 
 **Note that this is a stub README that contains boilerplate for many of the common operations done inside an ML repo. You should customize it appropriately for your specific project**
 
@@ -11,7 +11,7 @@ My Project Description
 ## Basics
 Clone the code to your machine using the standard Git clone command. If you have SSH keys setup the command is:
 ```bash
-git clone git@github.com:manifoldai/strata_nyc.git
+git clone git@github.com:manifoldai/orbyter_demo.git
 ``` 
 
  Important note: **Do not clone your code into Google Drive or DropBox**. There are known issues with MLFlow interacting with the file sync that is happening in the background. Clone to a directory that is not being synced by one of those services. 
@@ -37,7 +37,7 @@ docker-compose version 1.21.0, build 1719ceb
 
 ## Start Docker Containers
 
-The runtime for strata_nyc is inside a Docker container. We have helper scripts to launch the appropriate containers.  To launch a docker container and begin working on a CPU, run from the root directory of the repository:
+The runtime for orbyter_demo is inside a Docker container. We have helper scripts to launch the appropriate containers.  To launch a docker container and begin working on a CPU, run from the root directory of the repository:
 `./scripts/local/start.sh`
 
 
@@ -47,9 +47,9 @@ This builds images using the Dockerfile in docker/Dockerfile, and runs container
 You should see three containers running.  For example, on my laptop this looks like the below.  On your machine the container ids and the names of the images and running containers will be different, i.e. they will have your username rather that sdey.  In addition, the local ports will be different as well. That is expected. 
 ```bash
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                       NAMES
-f168e19b8b67        strata_nyc_mlflow            "bash -c 'mlflow ui …"   4 days ago          Up 3 days           127.0.0.1:32770->5000/tcp   strata_nyc_mlflow_<username>
-87f03baf686e        strata_nyc_sdey_bash-executer     "/bin/bash"              4 days ago          Up 4 days           127.0.0.1:32768->8501/tcp   strata_nyc_bash-executer_<username>
-d9bd01600486        strata_nyc_sdey_notebook-server   "bash -c 'cd /mnt &&…"   4 days ago          Up 3 days           127.0.0.1:32769->8888/tcp   strata_nyc_notebook-server_<username>
+f168e19b8b67        orbyter_demo_mlflow            "bash -c 'mlflow ui …"   4 days ago          Up 3 days           127.0.0.1:32770->5000/tcp   orbyter_demo_mlflow_<username>
+87f03baf686e        orbyter_demo_sdey_bash-executer     "/bin/bash"              4 days ago          Up 4 days           127.0.0.1:32768->8501/tcp   orbyter_demo_bash-executer_<username>
+d9bd01600486        orbyter_demo_sdey_notebook-server   "bash -c 'cd /mnt &&…"   4 days ago          Up 3 days           127.0.0.1:32769->8888/tcp   orbyter_demo_notebook-server_<username>
 ```
 
 ## Using the Containers
@@ -68,7 +68,7 @@ docker exec -it <bash-executor-container-name> /bin/bash
 ```
 In the example above, that command would be: 
 ```bash
-docker exec -it strata_nyc_bash-executer_<username> /bin/bash
+docker exec -it orbyter_demo_bash-executer_<username> /bin/bash
 ```
 
 ### Jupyter Server
@@ -90,7 +90,7 @@ Download the data and copy it to the right place.  Typically we put raw data in 
 
 We have designed the code so that all experimentation is controlled by configuration files. You don't need to edit source code to run experiments. This is by design. 
 
-There are a number of example configuration files checked into the repo [here](configs/examples).  Note that the configuration files only encode *deltas* from a base config file which is located [here](configs/config.yml).  The typical workflow is to construct a configuration file by hand or using some special config generation helper utilities located [here](strata_nyc/util/config.py). 
+There are a number of example configuration files checked into the repo [here](configs/examples).  Note that the configuration files only encode *deltas* from a base config file which is located [here](configs/config.yml).  The typical workflow is to construct a configuration file by hand or using some special config generation helper utilities located [here](orbyter_demo/util/config.py). 
 
 You can read about the configuration file structure [here](configs/README.md). In the following we will work with the configuration file example `config_example.yml` located [here](configs/examples/config_example.yml). 
 
@@ -98,7 +98,7 @@ You can read about the configuration file structure [here](configs/README.md). I
 
 Once you have the data in the right place and a configuration file, the next step is to prepare your data for training. We do this by invoking the etl script:  
 ```bash
-python strata_nyc/scripts/etl.py configs/examples/config_example.yml
+python orbyter_demo/scripts/etl.py configs/examples/config_example.yml
 ```
 Note that this command should be run inside the bash executor container, not on your local host.  While running this command you will see info logging to the screen that tells you what the code is doing and how it is splitting the data. 
 ```bash
@@ -109,7 +109,7 @@ Note that this command should be run inside the bash executor container, not on 
 
 The most common script run in this repository is the `evaluate.py` script.  It trains and evaluates a model.  We run this script as follows:  
 ```bash
-python strata_nyc/scripts/evaluate.py configs/examples/config_example.yml
+python orbyter_demo/scripts/evaluate.py configs/examples/config_example.yml
 ```
 By default, this script will retrain a model from scratch, but you can point it do use an already trained model.  We'll cover that later in the README. For now, lets assume that we are training a model from scratch.  When you run the script, you will see output like the following below: 
 ```bash

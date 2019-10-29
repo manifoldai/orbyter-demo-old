@@ -37,12 +37,12 @@ This should use black and isort to automatically format your code so that it pas
 
 We have written a number of unit tests for this repo. You can run all of them using `pytest`.  You can run a specific test suite by running that specific python file:
 ```bash
-pytest strata_nyc/scripts/evaluate_test.py -v
+pytest orbyter_demo/scripts/evaluate_test.py -v
 ```
 
 You can even just run a specific test by issuing a command like: 
 ```bash
-pytest strata_nyc/scripts/evaluate_test.py::test_evaluate -v
+pytest orbyter_demo/scripts/evaluate_test.py::test_evaluate -v
 ```
 
 Read more about pytest and how to invoke tests [here](https://docs.pytest.org/en/latest/usage.html). 
@@ -70,9 +70,9 @@ MLFlow's UI is running on the mlflow docker container. See what port it's mapped
 
 ```bash
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                       NAMES
-f168e19b8b67        strata_nyc_mlflow            "bash -c 'mlflow ui …"   4 days ago          Up 3 days           127.0.0.1:32770->5000/tcp   strata_nyc_mlflow_<username>
-87f03baf686e        strata_nyc_bash-executer     "/bin/bash"              4 days ago          Up 4 days           127.0.0.1:32768->8501/tcp   strata_nyc_sdey_bash-executer_<username>
-d9bd01600486        strata_nyc_notebook-server   "bash -c 'cd /mnt &&…"   4 days ago          Up 3 days           127.0.0.1:32769->8888/tcp   strata_nyc_sdey_notebook-server_<username>
+f168e19b8b67        orbyter_demo_mlflow            "bash -c 'mlflow ui …"   4 days ago          Up 3 days           127.0.0.1:32770->5000/tcp   orbyter_demo_mlflow_<username>
+87f03baf686e        orbyter_demo_bash-executer     "/bin/bash"              4 days ago          Up 4 days           127.0.0.1:32768->8501/tcp   orbyter_demo_sdey_bash-executer_<username>
+d9bd01600486        orbyter_demo_notebook-server   "bash -c 'cd /mnt &&…"   4 days ago          Up 3 days           127.0.0.1:32769->8888/tcp   orbyter_demo_sdey_notebook-server_<username>
 ```
 
 Then go to `localhost:32770` on your browser to access the MLFlow UI.

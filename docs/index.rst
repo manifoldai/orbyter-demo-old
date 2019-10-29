@@ -1,37 +1,37 @@
-strata_nyc documentation
+orbyter_demo documentation
 ==============================================
 
 .. toctree::
    :maxdepth: 2
 
-strata_nyc.scripts.train
+orbyter_demo.scripts.train
 ===================================================
-.. automodule:: strata_nyc.scripts.train
+.. automodule:: orbyter_demo.scripts.train
     :members:
     
-strata_nyc.scripts.evaluate
+orbyter_demo.scripts.evaluate
 ===================================================
-.. automodule:: strata_nyc.scripts.evaluate
+.. automodule:: orbyter_demo.scripts.evaluate
     :members:
 
-strata_nyc.scripts.predict
+orbyter_demo.scripts.predict
 ===================================================
-.. automodule:: strata_nyc.scripts.predict
+.. automodule:: orbyter_demo.scripts.predict
     :members:
 
-strata_nyc.util.config
+orbyter_demo.util.config
 ===================================================
-.. automodule:: strata_nyc.util.config
+.. automodule:: orbyter_demo.util.config
     :members:
 
-strata_nyc.util.logging
+orbyter_demo.util.logging
 ===================================================
-.. automodule:: strata_nyc.util.logging
+.. automodule:: orbyter_demo.util.logging
     :members:
 
-strata_nyc.util.security
+orbyter_demo.util.security
 ===================================================
-.. automodule:: strata_nyc.util.security
+.. automodule:: orbyter_demo.util.security
     :members:
 
 Indices and tables
