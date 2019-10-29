@@ -51,6 +51,7 @@ def main(config_file):
     # Persist model
     logger.info(f"Persisting model to {config['model']['model_path']}.")
     model_path = Path(config["model"]["model_path"])
+    model_path.parent.mkdir(parents=True, exist_ok=True)
     with open(model_path, "wb") as f:
         dump(trained_model, f)
 

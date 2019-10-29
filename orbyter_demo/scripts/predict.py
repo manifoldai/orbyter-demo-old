@@ -51,7 +51,9 @@ def predict(config_file):
     )
     yhat = trained_model.predict(X)
     yhat = pd.DataFrame(yhat, columns=["MedianHouseValue"])
-    yhat.to_parquet(config["predict"]["predictions_path"])
+    pred_path = Path(config["predict"]["predictions_path"])
+    pred_path.parent.mkdir(parents=True, exist_ok=True)
+    yhat.to_parquet(pred_path)
 
 
 if __name__ == "__main__":
