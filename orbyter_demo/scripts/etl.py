@@ -45,6 +45,7 @@ def etl(config_file):
 
     # Save as parquet file in processed dir
     logger.info(f"Write processed data to parquet file in {processed_data_dir}.")
+    processed_data_dir.mkdir(parents=True, exist_ok=True)
     X.to_parquet(processed_data_dir / "X.pqt")
     y.to_parquet(processed_data_dir / "y.pqt")
 
