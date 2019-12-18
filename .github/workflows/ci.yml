@@ -3,7 +3,7 @@ name: Continuous Integration
 on: [push]
 
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
     container:
       image: docker://manifoldai/orbyter-ml-dev:2.0
