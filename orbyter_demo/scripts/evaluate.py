@@ -48,6 +48,7 @@ def evaluate(config_file):
     y = pd.read_parquet(processed_data_dir / "y.pqt")["MedianHouseValue"]
 
     # Do cross validation to get average R2 metric
+    # hello
     logger.info("5-fold cross validation to get R2 metric.")
     n_estimators = 10
     rf = RandomForestRegressor(n_estimators=n_estimators)
